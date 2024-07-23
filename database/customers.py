@@ -10,5 +10,4 @@ db_password = os.getenv('DB_PASSWORD')
 db_host = os.getenv('DB_HOST')
 db_port = int(os.getenv('DB_PORT'))
 
-# Por hora a conexão está incompleta
 db = MySQLDatabase(db_name, user = db_user, password = db_password, host = db_host, port = db_port)

@@ -1,12 +1,12 @@
-from peewee import Model, CharField, DateField, DateTimeField
+from peewee import Model, CharField, DateTimeField
 from database.customers import db
 import datetime
 
 class User(Model):
     name = CharField()
+    birthday = CharField()
     cpf = CharField(unique=True)
     email = CharField()
-    birthday = DateField()
     date_register = DateTimeField(default=datetime.datetime.now)
 
     class Meta:

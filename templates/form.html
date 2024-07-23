@@ -9,35 +9,31 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body class="d-flex flex-column min-vh-100 bg-dark">
+<body class="d-flex flex-column min-vh-100 bg-dark text-light">
 
     <div class="container my-auto d-flex justify-content-center align-items-center flex-grow-1">
-        <form class="row justify-content-center g-3 needs-validation bg-light p-4 rounded" novalidate>
-            <div class="col-md-5">
-                <label for="validationCustom01" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="validationCustom01" name="nome" required>
-            </div>
-            <div class="col-md-5">
-                <label for="validationCustom02" class="form-label">CPF</label>
-                <input type="number" class="form-control" id="validationCustom02" name="cpf" required>
+        <form class="c-form" action="{{ url_for('user.create_user') }}" method="POST">
+            <div class="mb-3">
+                <label for="exampleInputNome1" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="exampleInputNome1" name="nome">
             </div>
 
-            <div class="col-md-5">
-                <label for="validationCustomUsername" class="form-label">Data de Nascimento</label>
-
-                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" name="nascimento" required>
-
-            </div>
-            <div class="col-md-5">
-                <label for="validationCustomUsername" class="form-label">E-mail</label>
-
-                <input type="email" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" name="email" required>
-
+            <div class="mb-3">
+                <label for="exampleInputNasc1" class="form-label">Data de Nascimento</label>
+                <input type="text" class="form-control" id="exampleInputNasc1" name="nascimento">
             </div>
 
-            <div class="col-10">
-                <button class="btn btn-primary" type="submit" {{ url_for('user.create_user') }}>Enviar</button>
+            <div class="mb-3">
+                <label for="exampleInputCpf1" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="exampleInputCpf1" name="cpf">
             </div>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
 
