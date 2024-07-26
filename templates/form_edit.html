@@ -1,0 +1,23 @@
+<form class="c-form" action="{{ url_for('user.update_user', id_user = u.id) }}" method="PUT" c-swap="#user-{{u.id}}">
+    <div class="mb-3">
+        <label for="exampleInputNome1" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="exampleInputNome1" name="nome" value="{{ u.name }}">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputNasc1" class="form-label">Data de Nascimento</label>
+        <input type="text" class="form-control" id="exampleInputNasc1" name="nascimento" value="{{ u.birthday }}">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputCpf1" class="form-label">CPF</label>
+        <input type="text" class="form-control" id="exampleInputCpf1" name="cpf" value="{{ u.cpf }}">
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="{{ u.email }}">
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar alterações</button>
+</form>
