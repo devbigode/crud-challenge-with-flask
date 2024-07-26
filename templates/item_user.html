@@ -1,7 +1,15 @@
-<tr>
+<tr id="user-{{u.id}}">
   <th scope="row">{{ u.id }}</th>
   <td>{{ u.name }}</td>
   <td>{{ u.cpf }}</td>
   <td>{{ u.email }}</td>
   <td>{{ u.birthday }}</td>
+  <td>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      c-get="{{ url_for('user.view_user', id_user = u.id) }}" c-target="#modal-user">
+      Editar
+    </button>
+    <button c-delete="{{ url_for('user.delete_user', id_user = u.id) }}" c-remove-closest="tr"
+      class="btn btn-danger">Excluir</button>
+  </td>
 </tr>

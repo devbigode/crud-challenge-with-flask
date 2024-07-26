@@ -3,20 +3,11 @@ from database.models import User
 
 user_route = Blueprint('user', __name__)
 
-@user_route.route("/<int:user_id>")
-def dashboard():
-    return {"id":"Ok"}
-
 @user_route.route("/list")
 def list_user():
     user_db = User.select()
     
     return render_template('table.html', user = user_db)
-
-@user_route.route("/view")
-def view_user():
-    # Modal com as info do usuário
-    return render_template('item_user.html')
 
 @user_route.route("/new")
 def form_create():
@@ -30,22 +21,29 @@ def create_user():
 
     return render_template('item_user.html', u = new_user)
 
-@user_route.route("/update")
-def form_edit():
-    # Renderizar um formulário de criação de usuário
-    return render_template('edit_user.html')
+@user_route.route("/<int:id_user>/update")
+def view_user(id_user):
+    user = User.get_by_id(id_user)
+    return render_template('form_edit.html', u = user)
 
-@user_route.route("/update", methods=["PUT"])
-def update_user():
-    # Criar usuário
-    return {'alterado': 'ok'}
+@user_route.route("/<int:id_user>/update", methods=["PUT"])
+def update_user(id_user):
+    user = User.get_by_id(id_user)
+    dados = request.json
+    
+    user.name = dados['nome']
+    user.birthday = dados['nascimento']
+    user.cpf = dados['cpf']
+    user.email = dados['email']
+    user.save()
+    
+    return render_template('item_user.html', u = user)
 
-@user_route.route("/delete")
-def alert_delete():
-    # Modal com as info do usuário
-    return render_template('item_user.html')
+# @user_route.route("/delete")
+# def alert_delete():
+#     return render_template('item_user.html')
 
-@user_route.route("/delete", methods=["DELETE"])
-def delete_user():
-    # Criar usuário
+@user_route.route("/<int:id_user>/delete", methods=["DELETE"])
+def delete_user(id_user):
+    User.delete_by_id(id_user)
     return {'deletado': 'ok'}
