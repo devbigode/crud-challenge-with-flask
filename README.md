@@ -26,6 +26,7 @@ Crie um arquivo .env na raiz do projeto com as seguintes informações:
 Não se esqueça de ajustar o arquivo requirements.txt com as dependências utilizadas no projeto.
 
     Flask==3.0.3
+    Flask-Login==0.6.3
     mysqlclient==2.2.4
     peewee==3.17.6
     python-dotenv==1.0.1
