@@ -19,6 +19,7 @@ Crie um arquivo .env na raiz do projeto com as seguintes informações:
     DB_PASSWORD=senha
     DB_HOST=localhost
     DB_PORT=3306
+    KEY_LOGIN=chave_aleatoria
 
 ## Nota
 

@@ -10,7 +10,7 @@ def init(app):
 
 def config_routes(app):
     app.register_blueprint(home_route)
-    app.register_blueprint(login_route, url_prefix='/login')
+    app.register_blueprint(login_route)
     app.register_blueprint(user_route, url_prefix='/user')
 
 def config_db():

@@ -1,5 +1,6 @@
 from peewee import Model, CharField, DateTimeField
 from database.customers import db
+from flask_login import UserMixin
 import datetime
 
 class User(Model):
@@ -12,7 +13,7 @@ class User(Model):
     class Meta:
         database = db
 
-class Worker(Model):
+class Worker(Model, UserMixin):
     name = CharField()
     email = CharField(unique=True)
     password = CharField()
