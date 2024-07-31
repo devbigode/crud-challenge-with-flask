@@ -18,9 +18,9 @@ def login():
             flash("Login bem-sucedido!", "success")
             return redirect(url_for('home.home'))
         elif user:
-            flash("Senha incorreta.","danger")
+            flash("Senha incorreta.", "danger")
         else:
-            flash("Usuário não encontrado!","danger")
+            flash("Usuário não encontrado!", "danger")
     return render_template('login.html')
 
 @login_route.route('/logout')
